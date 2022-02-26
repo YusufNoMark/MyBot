@@ -39,15 +39,15 @@ async def on_member_join(member):
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
 
     await member.add_roles(kayıtsızRol)
-    mod = "937088658811535401"
-    await channel.send(f":loudspeaker: <@&{mod}> Yeni Bir Üye Geldi!")
-    embed = discord.Embed(title="Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.green())
-    embed.add_field(name="Sunucumuza :regional_indicator_h: :regional_indicator_o: :regional_indicator_s: :regional_indicator_g: :regional_indicator_e: :regional_indicator_l: :regional_indicator_d: :regional_indicator_i: :regional_indicator_n:", value=f"{member.mention}")
+    sorumlu = "947173857964486676"
+    await channel.send(f":alarm_clock: <@&{sorumlu}> Yeni Bir Üye Geldi!")
+    embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.black())
+    embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
     embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
     embed.set_thumbnail(url=member.avatar_url)
     await channel.send(embed=embed)
-    gelen = discord.Embed(title="Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.green())
-    gelen.add_field(name="Sunucumuza :regional_indicator_h: :regional_indicator_o: :regional_indicator_s: :regional_indicator_g: :regional_indicator_e: :regional_indicator_l: :regional_indicator_d: :regional_indicator_i: :regional_indicator_n:", value=f"{member.mention}")
+    gelen = discord.Embed(title=":crossed_swords: Bilgisayar Günlükleri Kayıt Sistemi.", description=":bell: Yeni Bir Kullanıcı Var!", color=discord.Colour.black())
+    embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
     gelen.add_field(name="Seni Görmek Ne Kadar Güzel!", value=f"{member.mention}", inline=False)
     gelen.set_thumbnail(url=member.avatar_url)
     await geldi.send(embed=gelen)
@@ -126,6 +126,8 @@ async def yardım(ctx):
     embed.add_field(name=":gear: !bot ", value="Bot Komutlarını Gösterir.", inline=False)
     embed.set_thumbnail(url="https://xn--engitrentacar-htc.com/wp-content/uploads/2017/11/Support_Services-512.png")
     await ctx.channel.send(embed=embed)
+
+
 
 
 
