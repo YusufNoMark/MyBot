@@ -41,19 +41,12 @@ async def on_member_join(member):
     await member.add_roles(kayıtsızRol)
     sorumlu = "947173857964486676"
     await channel.send(f":alarm_clock: <@&{sorumlu}> Yeni Bir Üye Geldi!")
-    embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.black())
+    embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.purple())
     embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
     embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
     embed.set_thumbnail(url=member.avatar_url)
     await channel.send(embed=embed)
-    gelen = discord.Embed(title=":crossed_swords: Bilgisayar Günlükleri Kayıt Sistemi.", description=":bell: Yeni Bir Kullanıcı Var!", color=discord.Colour.black())
-    embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
-    gelen.add_field(name="Seni Görmek Ne Kadar Güzel!", value=f"{member.mention}", inline=False)
-    gelen.set_thumbnail(url=member.avatar_url)
-    await geldi.send(embed=gelen)
 
-
- 
 
 
 @client.command()
