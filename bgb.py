@@ -67,8 +67,8 @@ async def kayıt(ctx, member: discord.Member, nick):
     embed = discord.Embed(title="Bg Kayıt Sistemi", description="Kayıt Başarılı!", color=discord.Colour.green())
     embed.add_field(name=f"Kullanıcı Başarılı Bir Şekilde Kayıt Edildi!", value=f"Kayıt Edilen Kullanıcı: {member.mention} , Kayıt Eden Yetkili: <@{yetkili_id}>", inline=False)
     embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
-    await ctx.channel.send(embed=embed)
-    await ctx.channel.send(embed=embed)
+    await channel.send(embed=embed)
+    await kayıtchannel.send(embed=embed)
 
 
 @client.command()
