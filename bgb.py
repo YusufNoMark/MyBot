@@ -130,13 +130,6 @@ async def yardım(ctx):
 
 
 @client.command()
-async def cparti(ctx, ):
-
-
-
-
-
-@client.command()
 async def yetkili(ctx):
     embed = discord.Embed(title="Yetkili Menüsü", description="Burda Yetkili Komutlarını Görebilirsiniz.", colour=0x9f715)
     embed.add_field(name=":broom: !sil <Adet>", value="Verilen Değer kadar Mesaj Siler.", inline=True)
