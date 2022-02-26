@@ -3,7 +3,8 @@ import os
 import discord
 from discord.ext import commands
 import colorama
-import youtube_dl
+from discord import FFmpegPCMAudio
+from discord import TextChannel
 from youtube_dl import YoutubeDL
 
 from colorama import Fore, Back, Style
@@ -24,14 +25,18 @@ async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Bilgisayar Günlükleri"))
     print("OK")
 
+    #🔒┇kayıt
+    #🚪┇gelen-giden
+
 
 
 
 @client.event
 async def on_member_join(member):
     guild = member.guild
-    channel = discord.utils.get(member.guild.text_channels, name="kayıt")
-    kayıtsızRol = discord.utils.get(guild.roles, name="Kayıtsız")
+    channel = discord.utils.get(member.guild.text_channels, name="🔒┇kayıt")
+    geldi = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
+    kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
 
     await member.add_roles(kayıtsızRol)
     mod = "937088658811535401"
@@ -41,6 +46,13 @@ async def on_member_join(member):
     embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
     embed.set_thumbnail(url=member.avatar_url)
     await channel.send(embed=embed)
+    gelen = discord.Embed(title="Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=discord.Colour.green())
+    gelen.add_field(name="Sunucumuza :regional_indicator_h: :regional_indicator_o: :regional_indicator_s: :regional_indicator_g: :regional_indicator_e: :regional_indicator_l: :regional_indicator_d: :regional_indicator_i: :regional_indicator_n:", value=f"{member.mention}")
+    gelen.add_field(name="Seni Görmek Ne Kadar Güzel!", value=f"{member.mention}", inline=False)
+    gelen.set_thumbnail(url=member.avatar_url)
+    await geldi.send(embed=gelen)
+
+
  
 
 
@@ -115,6 +127,10 @@ async def yardım(ctx):
     embed.set_thumbnail(url="https://xn--engitrentacar-htc.com/wp-content/uploads/2017/11/Support_Services-512.png")
     await ctx.channel.send(embed=embed)
 
+
+
+@client.command()
+async def cparti(ctx, ):
 
 
 
@@ -551,105 +567,6 @@ async def nitrover(ctx, member: discord.Member):
 #=========================================================================================
 #=========================================================================================
 #=========================================================================================
-
-
-@client.command()
-async def denemed(ctx, url : str):
-
-  song_there = os.path.isfile("song.mp3")
-  try:
-    if song_there:
-      os.remove("song.mp3")
-
-  except PermissionError:
-    await ctx.channel("he")
-
-
-  voicechannel = discord.utils.get(ctx.guild.voice_channels, name="Genel")
-  await voicechannel.connect()
-  voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-
-
-  ydl_opts = {
-    "format": "bestaudio/best",
-    "postprocessors" : [{
-      "key": "FFmpegExtractAudio",
-      "preferredcodec": "mp3",
-      "preferredquality": "192",
-    }],
-  }
-
-  with youtube_dl.Youtube_DL(ydl_opts) as ydl:
-    ydl.download([url])
-
-  for file in os.listdir("./"):
-    if file.endswith(".mp3"):
-      os.rename(file, "song.mp3")
-  voice.play(discord.FFmpegPCMAudio("song.mp3"))
-  
-
-
-      
-
-
-
-  
-
-  
-
-
-  
-
-# command to play sound from a youtube URL
-@client.command()
-async def play(ctx, url):
-    YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
-    FFMPEG_OPTIONS = {
-        'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-
-    if not voice.is_playing():
-        with YoutubeDL(YDL_OPTIONS) as ydl:
-            info = ydl.extract_info(url, download=False)
-        URL = info['url']
-        voice.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
-        voice.is_playing()
-        await ctx.send('Bot is playing')
-
-# check if the bot is already playing
-    else:
-        await ctx.send("Bot is already playing")
-        return
-
-
-# command to resume voice if it is paused
-@client.command()
-async def resume(ctx):
-    voice = get(client.voice_clients, guild=ctx.guild)
-
-    if not voice.is_playing():
-        voice.resume()
-        await ctx.send('Bot is resuming')
-
-
-# command to pause voice if it is playing
-@client.command()
-async def pause(ctx):
-    voice = get(client.voice_clients, guild=ctx.guild)
-
-    if voice.is_playing():
-        voice.pause()
-        await ctx.send('Bot has been paused')
-
-
-# command to stop voice
-@client.command()
-async def stop(ctx):
-    voice = get(client.voice_clients, guild=ctx.guild)
-
-    if voice.is_playing():
-        voice.stop()
-        await ctx.send('Stopping...')
 
 
 
