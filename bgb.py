@@ -3,8 +3,7 @@ import os
 import discord
 from discord.ext import commands
 import colorama
-from discord import FFmpegPCMAudio
-from discord import TextChannel
+import youtube_dl
 from youtube_dl import YoutubeDL
 
 from colorama import Fore, Back, Style
