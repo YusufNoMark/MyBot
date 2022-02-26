@@ -55,7 +55,7 @@ async def kayıt(ctx, member: discord.Member, nick):
     guild = ctx.guild
     channel = discord.utils.get(member.guild.text_channels, name="💬⎪genel-sohbet")
     await member.edit(nick=f"⧖ {nick}")
-    kayıtsızRol = discord.utils.get(guild.roles, name="Kayıtsız")
+    kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
 
     await member.remove_roles(kayıtsızRol)
