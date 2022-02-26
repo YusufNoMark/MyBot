@@ -118,10 +118,6 @@ async def yardım(ctx):
 
 
 
-@client.command()
-async def cparti(ctx, ):
-
-
 
 
 
