@@ -53,7 +53,8 @@ async def on_member_join(member):
 @commands.has_role("Abone Rol Görevlisi")
 async def kayıt(ctx, member: discord.Member, nick):
     guild = ctx.guild
-    channel = discord.utils.get(member.guild.text_channels, name="💬⎪genel-sohbet")
+    channel = discord.utils.get(guild.text_channels, name="💬⎪genel-sohbet")
+    kayıtchannel = discord.utils.get(guild.text_channels, name="🔒┇kayıt")
     await member.edit(nick=f"⧖ {nick}")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
