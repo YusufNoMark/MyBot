@@ -73,6 +73,46 @@ async def kayıt(ctx, member: discord.Member, nick):
     embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
     await ctx.channel.send(embed=embed)
     await bildirme.send(embed=embed)
+    
+    kurallarımız = """
+    **
+    Kurallar Lütfen Okuyunuz. Aksi Taktirde Ben Bilmiyordum Gibi Bahaneler Kabul Etmiyoruz
+
+    1:  Üyelere Karşı Saygılı Olunmalıdır.
+
+    2: Düzgün Bir Şekilde Saygılı Ve Küfürsüz Konuşulmalıdır.
+
+    3: bane,31,napim Gibi Bebekçe Kelimelere Kullanmak Yasaktır
+
+    4: Spam Veya Flood Atmak Yasaktır
+
+    5: Yetkililere Saygılı Olunmalıdır
+
+    6: Sunucumuzun Tagı Adda Bulundurulması Zorunludur Nitro İle Değiştirilemez.
+
+    7: Özelden Üyeleri Rahatsız Etmek Yasaktır.(Yetkililer Dahil)
+
+    8: Bot Komutlarını Gelip 💻┇bot-komut Adlı Kanalda Yazılmalıdır.
+
+    9: Dil,Din,Irk Ayrımı Yasaktır
+
+    10: Siyasi Konuların Konuşulması Yasaktır (isteyen dm)
+
+    11: Dini konuların Konuşulması Yasaktır(ateistlerin amq)
+
+
+    Sunucuya Girdiğiniz Andan İtibaren Kuralları Okumuş Sayılırsınız.
+
+    **
+"""
+    
+    
+    
+    usersend = discord.Embed(title="Sunucumuza Hoş Geldin Yoldaş!", description="Lütfen Kuralları Okuyunuz.", color=discord.Colour.green())
+    usersend.add_field(name="Bilgilendirme!", value="*Abone Rolü İçin Abone Kanıt Adlı Kısma 2 Kanalada Abone Olup Bildirimleri Açtığına Dair SS Atman Gerekir. Yetkililerimiz İlgilenecektir Değerli Üyemiz.*", inline=False)
+    usersend.add_field(name="Kurallar.", value=f"{kurallarımız}", inline=True)
+    
+    await member.send(embed=usersend)
         
         
         
