@@ -133,6 +133,16 @@ async def ver(ctx, member: discord.Member):
     if id == gercek:
         
         await member.add_roles(yetki)
+        
+        
+        
+@client.command()
+async def deneme(ctx, member: discord.Member):
+    msg = await client.wait_for("message", check=check, timeout=60)
+    
+    if msg == "deneme":
+        await ctx.channel.send("hığğ")
+     
 
 
 @client.command()
