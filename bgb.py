@@ -98,7 +98,7 @@ async def kayıt(ctx, member: discord.Member, nick):
 
     10: Siyasi Konuların Konuşulması Yasaktır (isteyen dm)
 
-    11: Dini konuların Konuşulması Yasaktır(ateistlerin amq)
+    11: Dini konuların Konuşulması Yasaktır
 
 
     Sunucuya Girdiğiniz Andan İtibaren Kuralları Okumuş Sayılırsınız.
