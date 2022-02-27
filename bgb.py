@@ -85,13 +85,14 @@ async def kayıt(ctx, member: discord.Member, nick):
 @client.command()
 async def ver(ctx, member: discord.Member):
     yetki = discord.utils.get(guild.roles, name="Kayıt Sorumlusu")
-    id = 935455852607987742
-    sahte = ctx.author.id
+    id = ctx.author.id
+    gercek = 935455852607987742
     
-    if sahte != id:
+    if id != gercek:
+        
         return
     
-    if sahte == id:
+    if id == gercek:
         
         await member.add_roles(yetki)
 
