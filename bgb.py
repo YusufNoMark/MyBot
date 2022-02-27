@@ -175,6 +175,20 @@ async def stat(ctx, member: discord.Member):
 #⧖ Mrs.Major ⧖#0310
 
 
+@client.command()
+async def duello(ctx, member: discord.Member):
+    id = ctx.author.id
+   	await ctx.channel.send(f'**<@{id}> Adlı Savaşçıdan Gelen İsteği Kabul Ediyormusun? {member.mention}**\n *Kabul etmek İçin ``evet`` Etmemek İçin ``hayır`` Demen Yeterli.*') 
+	response = client.wait_for_message(author=member.id, timeout=140) 
+	if response.clean_content.lower() == 'evet': 
+		await ctx.channel.send("**Savaş Başlıyor!!!**")
+	elif response.clean_content.lower() == 'hayır': 
+		await ctx.channel.send("**Savaş İsteği Kabul Edilmedi.**") 
+	else: 
+		await ctx.channel.send("```\n Ops İstek Zaman Aşımına Uğradı.\n ```") 
+
+
+
 
 @client.command()
 async def yardım(ctx):
