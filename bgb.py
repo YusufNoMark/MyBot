@@ -104,6 +104,10 @@ async def kayıt(ctx, member: discord.Member, nick):
     Sunucuya Girdiğiniz Andan İtibaren Kuralları Okumuş Sayılırsınız.
 
     **
+    
+    ```
+    İyi Eğlenceler Değerli üyemiz.
+    ```
 """
     
     
