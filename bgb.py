@@ -54,17 +54,16 @@ async def on_member_join(member):
 async def kayıt(ctx, member: discord.Member, nick):
     guild = ctx.guild
     bildirme = discord.utils.get(guild.text_channels, name="💬┇genel-sohbet")
-    kayıtchannel = discord.utils.get(guild.text_channels, name="🔒┇kayıt")
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     
-    for kayıtlırol in member.top_role.name:
+    for kayıtlırol in member.top_role:
         id = ctx.author.id
         await ctx.channel.send(f"```\n Kullanıcı Zaten Kayıtlı! <@{id}>\n ```")
         return
     
     
-    for kayıtsızRol in member.top_role.name:
+    for kayıtsızRol in member.top_role:
         
         
         await member.edit(nick=f"⧖ {nick}")
