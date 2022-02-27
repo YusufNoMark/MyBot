@@ -50,7 +50,7 @@ async def on_member_join(member):
 
 
 @client.command()
-@commands.has_role("Kayıt Sorumlusu")
+@commands.has_role("KAYITSIZ")
 async def kayıt(ctx, member: discord.Member, nick):
     guild = ctx.guild
     bildirme = discord.utils.get(guild.text_channels, name="💬┇genel-sohbet")
