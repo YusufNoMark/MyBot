@@ -57,27 +57,22 @@ async def kayıt(ctx, member: discord.Member, nick):
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     
-    for kayıtlırol in member.top_role:
-        id = ctx.author.id
-        await ctx.channel.send(f"```\n Kullanıcı Zaten Kayıtlı! <@{id}>\n ```")
-        return
-    
-    
-    for kayıtsızRol in member.top_role:
+
+      
         
         
-        await member.edit(nick=f"⧖ {nick}")
+    await member.edit(nick=f"⧖ {nick}")
 
-        await member.remove_roles(kayıtsızRol)
-        await member.add_roles(kayıtlırol)
+    await member.remove_roles(kayıtsızRol)
+    await member.add_roles(kayıtlırol)
 
-        yetkili_id = ctx.author.id
+    yetkili_id = ctx.author.id
 
-        embed = discord.Embed(title="Bg Kayıt Sistemi", description="Kayıt Başarılı!", color=discord.Colour.green())
-        embed.add_field(name=f"Kullanıcı Başarılı Bir Şekilde Kayıt Edildi!", value=f"Kayıt Edilen Kullanıcı: {member.mention} , Kayıt Eden Yetkili: <@{yetkili_id}>", inline=False)
-        embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
-        await ctx.channel.send(embed=embed)
-        await bildirme.send(embed=embed)
+    embed = discord.Embed(title="Bg Kayıt Sistemi", description="Kayıt Başarılı!", color=discord.Colour.green())
+    embed.add_field(name=f"Kullanıcı Başarılı Bir Şekilde Kayıt Edildi!", value=f"Kayıt Edilen Kullanıcı: {member.mention} , Kayıt Eden Yetkili: <@{yetkili_id}>", inline=False)
+    embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
+    await ctx.channel.send(embed=embed)
+    await bildirme.send(embed=embed)
         
         
         
