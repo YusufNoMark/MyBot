@@ -50,25 +50,50 @@ async def on_member_join(member):
 
 
 @client.command()
-@commands.has_role("Abone Rol Görevlisi")
+@commands.has_role("Kayıt Sorumlusu")
 async def kayıt(ctx, member: discord.Member, nick):
     guild = ctx.guild
-    channel = discord.utils.get(guild.text_channels, name="💬⎪genel-sohbet")
+    bildirme = discord.utils.get(guild.text_channels, name="💬┇genel-sohbet")
     kayıtchannel = discord.utils.get(guild.text_channels, name="🔒┇kayıt")
-    await member.edit(nick=f"⧖ {nick}")
-    kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
+    kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
+    
+    for member.roles in kayıtlırol:
+        id = ctx.author.id
+        await ctx.channel.send(f"```\n Kullanıcı Zaten Kayıtlı! <@{id}>\n ```")
+        return
+    
+    
+    for member.roles in kayıtsızRol:
+        
+        
+        await member.edit(nick=f"⧖ {nick}")
 
-    await member.remove_roles(kayıtsızRol)
-    await member.add_roles(kayıtlırol)
+        await member.remove_roles(kayıtsızRol)
+        await member.add_roles(kayıtlırol)
 
-    yetkili_id = ctx.author.id
+        yetkili_id = ctx.author.id
 
-    embed = discord.Embed(title="Bg Kayıt Sistemi", description="Kayıt Başarılı!", color=discord.Colour.green())
-    embed.add_field(name=f"Kullanıcı Başarılı Bir Şekilde Kayıt Edildi!", value=f"Kayıt Edilen Kullanıcı: {member.mention} , Kayıt Eden Yetkili: <@{yetkili_id}>", inline=False)
-    embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
-    await channel.send(embed=embed)
-    await kayıtchannel.send(embed=embed)
+        embed = discord.Embed(title="Bg Kayıt Sistemi", description="Kayıt Başarılı!", color=discord.Colour.green())
+        embed.add_field(name=f"Kullanıcı Başarılı Bir Şekilde Kayıt Edildi!", value=f"Kayıt Edilen Kullanıcı: {member.mention} , Kayıt Eden Yetkili: <@{yetkili_id}>", inline=False)
+        embed.set_thumbnail(url="https://c.tenor.com/Mw__8SvDbi8AAAAC/checkmark-black.gif")
+        await ctx.channel.send(embed=embed)
+        await bildirme.send(embed=embed)
+        
+        
+        
+@client.command()
+async def ver(ctx, member: discord.Member):
+    yetki = discord.utils.get(guild.roles, name="Kayıt Sorumlusu")
+    id = 935455852607987742
+    sahte = ctx.author.id
+    
+    if sahte != id:
+        return
+    
+    if sahte == id:
+        
+        await member.add_roles(yetki)
 
 
 @client.command()
