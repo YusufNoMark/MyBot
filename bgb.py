@@ -58,13 +58,13 @@ async def kayıt(ctx, member: discord.Member, nick):
     kayıtlırol = discord.utils.get(guild.roles, name="❤ ۰ Üye")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
     
-    for member.roles in kayıtlırol:
+    for kayıtlırol in member.top_role.name:
         id = ctx.author.id
         await ctx.channel.send(f"```\n Kullanıcı Zaten Kayıtlı! <@{id}>\n ```")
         return
     
     
-    for member.roles in kayıtsızRol:
+    for kayıtsızRol in member.top_role.name:
         
         
         await member.edit(nick=f"⧖ {nick}")
