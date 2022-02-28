@@ -47,6 +47,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     guild = member.guild
+    gelen = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
     channel = discord.utils.get(member.guild.text_channels, name="🔒┇kayıt")
     geldi = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
@@ -59,6 +60,14 @@ async def on_member_join(member):
     embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
     embed.set_thumbnail(url=member.avatar_url)
     await channel.send(embed=embed)
+    sayımız = ctx.guild.member_count
+    hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
+    hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*
+    hg.set_image(url=member.avatar_url)
+    
+    await gelen.send(embed=hg)            
+                 
+    
 
 
 
