@@ -14,7 +14,7 @@ from colorama import Fore, Back, Style
 colorama.init()
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix="!",intents=intents)
+client = commands.Bot(command_prefix="!", ".",intents=intents)
 
 
 player = {}
