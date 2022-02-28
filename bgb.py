@@ -138,10 +138,14 @@ async def ver(ctx, member: discord.Member):
         
 @client.command()
 async def deneme(ctx, member: discord.Member):
-    msg = await client.wait_for("message", check=check, timeout=60)
-    
-    if msg == "deneme":
-        await ctx.channel.send("hığğ")
+    def check(msg):
+        return msg.author == ctx.author and msg.channel == ctx.channel and msg.content in ["1", "2"]
+    msg = await client.wait_for("message", check=check)
+
+    if msg.content == "1":
+        await msg.send("Ok")
+    else:
+        pass
      
 
 
