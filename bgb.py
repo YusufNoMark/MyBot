@@ -62,7 +62,7 @@ async def on_member_join(member):
     await channel.send(embed=embed)
     sayımız = ctx.guild.member_count
     hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
-    hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*, inline=False)
+    hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
     hg.set_image(url=member.avatar_url)
     
     await gelen.send(embed=hg)
@@ -72,11 +72,11 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     sayımız = ctx.guild.member_count
-    hg = discord.Embed(title="Bir Yoldaş Kaybettik! :cry:", description=f"*Aramızdan Ayrıldı* {member.mention}", color=discord.Colour.purple())
-    hg.add_field(name="Görüşmek Üzere :(", value=f"*Sensiz ``{sayımız}`` Kişi kaldık*, inline=False)
-    hg.set_image(url=member.avatar_url)
+    bb = discord.Embed(title="Bir Yoldaş Kaybettik! :cry:", description=f"*Aramızdan Ayrıldı* {member.mention}", color=discord.Colour.purple())
+    bb.add_field(name="Görüşmek Üzere :(", value=f"*Sensiz ``{sayımız}`` Kişi kaldık*", inline=False)
+    bb.set_image(url=member.avatar_url)
     
-    await gelen.send(embed=hg)            
+    await gelen.send(embed=bb)            
                 
                  
                  
