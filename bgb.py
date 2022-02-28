@@ -13,8 +13,21 @@ from colorama import Fore, Back, Style
 
 colorama.init()
 
+def botp(bot, message):
+    
+    # gayet basit bir şekilde prefix eklenebiliyor
+    prefixler = ['!', '.', 'b!']
+
+    # mesaj dm den mi yoksa sunucudan mı gelmiş ona bakar
+    if not message.guild:
+        # sadece dm için ? kullanmaya açık
+        return '?'
+
+  
+    return commands.when_mentioned_or(*prefixler)(bot, message)
+
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix="!", ".",intents=intents)
+client = commands.Bot(command_prefix=botp, intents=intents)
 
 
 player = {}
