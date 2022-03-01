@@ -72,12 +72,12 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     sayımız = member.guild.member_count
-    #giden = 
+    giden = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
     bb = discord.Embed(title="Bir Yoldaş Kaybettik! :cry:", description=f"*Aramızdan Ayrıldı* {member.mention}", color=discord.Colour.purple())
     bb.add_field(name="Görüşmek Üzere :(", value=f"*Sensiz ``{sayımız}`` Kişi kaldık*", inline=False)
     bb.set_image(url=member.avatar_url)
     
-    await gelen.send(embed=bb)            
+    await giden.send(embed=bb)            
                 
                  
                  
