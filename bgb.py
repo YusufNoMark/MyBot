@@ -156,7 +156,7 @@ async def kayıt(ctx, member: discord.Member, nick):
     await member.send(embed=usersend)
         
         
-        
+"""        
 @client.command()
 async def ver(ctx, member: discord.Member):
     guild = ctx.guild
@@ -191,7 +191,7 @@ async def al(ctx, member: discord.Member):
         await member.remove_roles(yetki)
 
 
-
+"""
         
         
         
