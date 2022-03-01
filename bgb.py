@@ -156,42 +156,6 @@ async def kayıt(ctx, member: discord.Member, nick):
     await member.send(embed=usersend)
         
         
-"""        
-@client.command()
-async def ver(ctx, member: discord.Member):
-    guild = ctx.guild
-    yetki = discord.utils.get(guild.roles, name="⌨ ۰ Uzman Moderatör")
-    id = ctx.author.id
-    gercek = 935455852607987742
-
-    
-    if id != gercek:
-        
-        return
-    
-    if id == gercek:
-        
-        await member.add_roles(yetki)
-
-
-@client.command()
-async def al(ctx, member: discord.Member):
-    guild = ctx.guild
-    yetki = discord.utils.get(guild.roles, name="⌨ ۰ Uzman Moderatör")
-    id = ctx.author.id
-    gercek = 935455852607987742
-
-    
-    if id != gercek:
-        
-        return
-    
-    if id == gercek:
-        
-        await member.remove_roles(yetki)
-
-
-"""
         
         
         
