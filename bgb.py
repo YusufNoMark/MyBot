@@ -6,6 +6,7 @@ import colorama
 from discord import FFmpegPCMAudio
 from discord import TextChannel
 from youtube_dl import YoutubeDL
+import time
 
 from colorama import Fore, Back, Style
 
@@ -74,7 +75,7 @@ async def on_member_join(member):
         embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=0x000000)
         embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
         embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
-        embed.add_field(name="Hesap Durumu", value=":white_chechk_mark: Güvenilir!!", inline=False)
+        embed.add_field(name="Hesap Durumu", value=":white_check_mark: Güvenilir!!", inline=False)
         embed.set_thumbnail(url=member.avatar_url)
         await channel.send(embed=embed)
         sayımız = guild.member_count
@@ -133,32 +134,18 @@ async def kayıt(ctx, member: discord.Member, nick):
     kurallarımız = """
     **
     Kurallar Lütfen Okuyunuz. Aksi Taktirde Ben Bilmiyordum Gibi Bahaneler Kabul Etmiyoruz
-
     1:  Üyelere Karşı Saygılı Olunmalıdır.
-
     2: Düzgün Bir Şekilde Saygılı Ve Küfürsüz Konuşulmalıdır.
-
     3: bane,31,napim Gibi Bebekçe Kelimelere Kullanmak Yasaktır
-
     4: Spam Veya Flood Atmak Yasaktır
-
     5: Yetkililere Saygılı Olunmalıdır
-
     6: Sunucumuzun Tagı Adda Bulundurulması Zorunludur Nitro İle Değiştirilemez.
-
     7: Özelden Üyeleri Rahatsız Etmek Yasaktır.(Yetkililer Dahil)
-
     8: Bot Komutlarını Gelip 💻┇bot-komut Adlı Kanalda Yazılmalıdır.
-
     9: Dil,Din,Irk Ayrımı Yasaktır
-
     10: Siyasi Konuların Konuşulması Yasaktır (isteyen dm)
-
     11: Dini konuların Konuşulması Yasaktır
-
-
     Sunucuya Girdiğiniz Andan İtibaren Kuralları Okumuş Sayılırsınız.
-
     **
     
     ```
