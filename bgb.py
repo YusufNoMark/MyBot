@@ -53,17 +53,36 @@ async def on_member_join(member):
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
 
     await member.add_roles(kayıtsızRol)
-    sorumlu = "947173857964486676"
-    await channel.send(f":alarm_clock: <@&{sorumlu}> Yeni Bir Üye Geldi!")
-    embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=0x000000)
-    embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
-    embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
-    embed.set_thumbnail(url=member.avatar_url)
-    await channel.send(embed=embed)
-    sayımız = guild.member_count
-    hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
-    hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
-    hg.set_image(url=member.avatar_url)
+    if time.time() - member.created_at.timestamp() < 2592000:
+        
+        sorumlu = "947173857964486676"
+        await channel.send(f":alarm_clock: <@&{sorumlu}> Yeni Bir Üye Geldi!")
+        embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=0x000000)
+        embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
+        embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
+        embed.add_field(name="Hesap Durumu", value=":warning: Güvenilir Değil!", inline=False)
+        embed.set_thumbnail(url=member.avatar_url)
+        await channel.send(embed=embed)
+        sayımız = guild.member_count
+        hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
+        hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
+        hg.set_image(url=member.avatar_url)
+    
+    else:
+        sorumlu = "947173857964486676"
+        await channel.send(f":alarm_clock: <@&{sorumlu}> Yeni Bir Üye Geldi!")
+        embed = discord.Embed(title=":crossed_swords: Bg Kayıt Sistemi.", description=":bellhop: Yeni Bir Kullanıcı Var!", color=0x000000)
+        embed.add_field(name="Sunucumuza Hoş Geldin Yoldaş!", value=f"👋 {member.mention}")
+        embed.add_field(name="Lütfen Yetkilileri Bekleyiniz.", value=f"{member.mention}", inline=False)
+        embed.add_field(name="Hesap Durumu", value=":white_chechk_mark: Güvenilir!!", inline=False)
+        embed.set_thumbnail(url=member.avatar_url)
+        await channel.send(embed=embed)
+        sayımız = guild.member_count
+        hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
+        hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
+        hg.set_image(url=member.avatar_url)
+        
+    
     
     await gelen.send(embed=hg)
                  
