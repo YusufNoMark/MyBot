@@ -174,7 +174,7 @@ async def hesaplar(ctx):
     embed.add_field(name="Youtube Ana", value="https://www.youtube.com/channel/UCRoiDefoomfvKHzDoYOtsAA", inline=False)
     embed.add_field(name="Youtube Yan", value="https://www.youtube.com/channel/UC5PHsxsBnBKNtYjfXmZgcaA", inline=False)
     embed.add_field(name="Telegram", value="https://t.me/hackingsx", inline=False)
-    embed.set_thumbnail(url="https://d29fhpw069ctt2.cloudfront.net/icon/image/47999/preview.svg")
+    embed.set_thumbnail(url="https://www.nicepng.com/png/full/380-3805219_firebase-for-android-resources-and-links-icon.png")
     await cta.channel.send(embed=embed)
      
 
