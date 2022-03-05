@@ -167,17 +167,15 @@ async def kayıt(ctx, member: discord.Member, nick):
         
         
         
-        
 @client.command()
-async def deneme(ctx, member: discord.Member):
-    def check(msg):
-        return msg.author == ctx.author and msg.channel == ctx.channel and msg.content in ["1", "2"]
-    msg = await client.wait_for("message", check=check)
-
-    if msg.content == "1":
-        await msg.send("Ok")
-    else:
-        pass
+async def hesaplar(ctx):
+    embed = discord.Embed(title="Hesaplar", description="Burada Tüm Hesaplarımızın Linkleri Var!", color=discord.Colour.green())
+    embed.add_field(name="Whatsapp", value="https://chat.whatsapp.com/IP0ZW7V5jb4AFioQYPsAA1", inline=False)
+    embed.add_field(name="Youtube Ana", value="https://www.youtube.com/channel/UCRoiDefoomfvKHzDoYOtsAA", inline=False)
+    embed.add_field(name="Youtube Yan", value="https://www.youtube.com/channel/UC5PHsxsBnBKNtYjfXmZgcaA", inline=False)
+    embed.add_field(name="Telegram", value="https://t.me/hackingsx", inline=False)
+    embed.set_thumbnail(url="https://d29fhpw069ctt2.cloudfront.net/icon/image/47999/preview.svg")
+    await cta.channel.send(embed=embed)
      
 
 
@@ -672,4 +670,4 @@ async def nitrover(ctx, member: discord.Member):
     
 
 #client.run(os.getenv("TOKEN"))
-client.run("OTM1Nzk0ODc1NjIwNzk4NTE0.YfD05A.ThRq8vW_vskY6uq1BFmck-Fn8s8")
+client.run("TOKEN")
