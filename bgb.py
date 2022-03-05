@@ -52,6 +52,9 @@ async def on_member_join(member):
     channel = discord.utils.get(member.guild.text_channels, name="🔒┇kayıt")
     geldi = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
+    panel = discord.get.utils(member.guild.voice_channels, name="Üye Sayısı • ")
+    sayımız = guild.member_count
+    await voice_channel.edit(panel, name=f"Üye Sayısı • {sayımız}")
 
     await member.add_roles(kayıtsızRol)
     if time.time() - member.created_at.timestamp() < 2592000:
@@ -64,7 +67,6 @@ async def on_member_join(member):
         embed.add_field(name="Hesap Durumu", value=":warning: Güvenilir Değil!", inline=False)
         embed.set_thumbnail(url=member.avatar_url)
         await channel.send(embed=embed)
-        sayımız = guild.member_count
         hg = discord.Embed(title="Yeni Bir YOLDAŞ! :partying_face:", description=f"*Hoş Geldin.* {member.mention}", color=discord.Colour.green())
         hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
         hg.set_image(url=member.avatar_url)
@@ -83,6 +85,10 @@ async def on_member_join(member):
         hg.add_field(name="Seni Görmek Güzel", value=f"*Senin İle Beraber ``{sayımız}`` Kişi Olduk!*", inline=False)
         hg.set_image(url=member.avatar_url)
         
+    
+    
+    
+       
     
     
     await gelen.send(embed=hg)
