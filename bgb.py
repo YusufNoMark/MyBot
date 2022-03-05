@@ -52,9 +52,6 @@ async def on_member_join(member):
     channel = discord.utils.get(member.guild.text_channels, name="🔒┇kayıt")
     geldi = discord.utils.get(member.guild.text_channels, name="🚪┇gelen-giden")
     kayıtsızRol = discord.utils.get(guild.roles, name="KAYITSIZ")
-    panel = discord.get.utils(member.guild.voice_channels, name="Üye Sayısı • ")
-    sayımız = guild.member_count
-    await voice_channel.edit(panel, name=f"Üye Sayısı • {sayımız}")
 
     await member.add_roles(kayıtsızRol)
     if time.time() - member.created_at.timestamp() < 2592000:
