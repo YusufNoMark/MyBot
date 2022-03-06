@@ -56,7 +56,13 @@ async def on_ready():
 
 
 
-
+@tasks.loop(seconds=3)
+async def status_task() -> None:
+    """
+    Setup the game status task of the bot
+    """
+    statuses = ["Güvenlik", "Eğlence", "Sistem"]
+    await bot.change_presence(activity=disnake.Game(random.choice(statuses)))
 
 
 
