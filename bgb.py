@@ -193,22 +193,7 @@ async def hesaplar(ctx):
     await ctx.channel.send(embed=embed)
 
 
-@client.command()
-async def deneme(ctx, member):
-    await ctx.channel.send(member.joindate)
      
-
-
-@client.command()
-async def bildir(ctx, arg1):
-    id = ctx.author.id
-    ad = ctx.author
-    embed = discord.Embed(title="Bildirme Sistemi.", description="Hatanız Başarılı Bir Şekilde Bildirildi.", color=discord.Colour.green())
-    embed.add_field(name="Dikkat!", value="``Eğerki Boş Veya Yalan Bir Şeyi Bildirirseniz Sunucuda Uyarı Değil Ceza Alırsınız.``", inline=False)
-    await ctx.channel.send(embed=embed)
-
-    print(Fore.LIGHTCYAN_EX + f"---- Ad: {ad} ---- İd: {id} ---- Bildirme: {arg1}")
-    os.system(f"\necho ---- Ad: {ad} ---- Id: {id} ---- Bildirme: {arg1}>> bildirme.txt")
 
 
 @client.command()
@@ -217,8 +202,15 @@ async def stat(ctx, member: discord.Member):
     yaratıcım = 935455852607987742
 
     if member.id == yaratıcım:
-        #time.sleep(1)
-        await ctx.channel.send("``Yusuf Abime Laf Ettirmem!``")
+        
+        embed = discord.Embed(title="Stat Sistemi", description=f"**{member.mention}** ``Adlı Kullanıcının Statlarına`` **<@{id}>** ``Tarafından Bakıldı``")
+        embed.add_field(name="Sevgi Durumu", value=f"S+", inline=False)
+        embed.add_field(name="Sağlık Durumu", value=f"S+", inline=False)
+        embed.add_field(name="Para Durumu", value=f"S+", inline=False)
+        embed.add_field(name="Oğretim Durumu", value=f"S+", inline=False)
+        embed.add_field(name="Karakter Seviyesi Durumu", value=f"S+", inline=False)
+        await ctx.channel.send(embed=embed)
+        
         return
 
 
