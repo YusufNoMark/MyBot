@@ -50,6 +50,7 @@ client = commands.Bot(command_prefix=botp, intents=intents)
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Bilgisayar Günlükleri"))
     print("OK")
+    status_task.start()
 
     #🔒┇kayıt
     #🚪┇gelen-giden
