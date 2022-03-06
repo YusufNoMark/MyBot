@@ -9,10 +9,6 @@ from discord import TextChannel
 import youtube_dl
 from youtube_dl import YoutubeDL
 import time
-import DiscordUtils
-import asyncio
-import io
-from io import BytesIO
 
 #from discord.utils import get
 from discord import FFmpegPCMAudio
