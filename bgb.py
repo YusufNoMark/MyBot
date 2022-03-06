@@ -370,6 +370,11 @@ async def pp(ctx, member:discord.Member):
 @client.command()
 @commands.has_role("Ovh")
 async def sil(ctx, amount=5):
+    
+    if amount > 500:
+        return
+    
+    
     await ctx.channel.purge(limit=amount)
         
     embed = discord.Embed(title="Sil", description="Sil İnfo", color=discord.Colour.blue())
