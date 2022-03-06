@@ -170,10 +170,10 @@ async def kayıt(ctx, member: discord.Member, nick):
 @client.command()
 async def hesaplar(ctx):
     embed = discord.Embed(title="Hesaplar", description="Burada Tüm Hesaplarımızın Linkleri Var!", color=discord.Colour.green())
-    embed.add_field(name="Whatsapp", value="https://chat.whatsapp.com/IP0ZW7V5jb4AFioQYPsAA1", inline=False)
     embed.add_field(name="Youtube Ana", value="https://www.youtube.com/channel/UCRoiDefoomfvKHzDoYOtsAA", inline=False)
     embed.add_field(name="Youtube Yan", value="https://www.youtube.com/channel/UC5PHsxsBnBKNtYjfXmZgcaA", inline=False)
     embed.add_field(name="Telegram", value="https://t.me/hackingsx", inline=False)
+    embed.add_field(name="Whatsapp", value="https://chat.whatsapp.com/IP0ZW7V5jb4AFioQYPsAA1", inline=False)
     embed.set_thumbnail(url="https://www.nicepng.com/png/full/380-3805219_firebase-for-android-resources-and-links-icon.png")
     await ctx.channel.send(embed=embed)
      
