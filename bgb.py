@@ -1,12 +1,24 @@
 import random
 import os
 import discord
-from discord.ext import commands
+from discord.ext import commands,tasks
 import colorama
+from discord.utils import get
+from discord import FFmpegPCMAudio
+from discord import TextChannel
+import youtube_dl
+from youtube_dl import YoutubeDL
+import time
+import DiscordUtils
+import asyncio
+import io
+from io import BytesIO
+
+#from discord.utils import get
 from discord import FFmpegPCMAudio
 from discord import TextChannel
 from youtube_dl import YoutubeDL
-import time
+
 
 from colorama import Fore, Back, Style
 
@@ -27,11 +39,15 @@ def botp(bot, message):
   
     return commands.when_mentioned_or(*prefixler)(bot, message)
 
-intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
+#intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
+
+
+
+intents = discord.Intents().all()
+
 client = commands.Bot(command_prefix=botp, intents=intents)
 
 
-player = {}
 
 
 @client.event
@@ -41,6 +57,9 @@ async def on_ready():
 
     #🔒┇kayıt
     #🚪┇gelen-giden
+
+
+
 
 
 
@@ -170,12 +189,17 @@ async def kayıt(ctx, member: discord.Member, nick):
 @client.command()
 async def hesaplar(ctx):
     embed = discord.Embed(title="Hesaplar", description="Burada Tüm Hesaplarımızın Linkleri Var!", color=discord.Colour.green())
+    embed.add_field(name="Whatsapp", value="https://chat.whatsapp.com/IP0ZW7V5jb4AFioQYPsAA1", inline=False)
     embed.add_field(name="Youtube Ana", value="https://www.youtube.com/channel/UCRoiDefoomfvKHzDoYOtsAA", inline=False)
     embed.add_field(name="Youtube Yan", value="https://www.youtube.com/channel/UC5PHsxsBnBKNtYjfXmZgcaA", inline=False)
     embed.add_field(name="Telegram", value="https://t.me/hackingsx", inline=False)
-    embed.add_field(name="Whatsapp", value="https://chat.whatsapp.com/IP0ZW7V5jb4AFioQYPsAA1", inline=False)
     embed.set_thumbnail(url="https://www.nicepng.com/png/full/380-3805219_firebase-for-android-resources-and-links-icon.png")
     await ctx.channel.send(embed=embed)
+
+
+@client.command()
+async def deneme(ctx, member):
+    await ctx.channel.send(member.joindate)
      
 
 
@@ -665,9 +689,36 @@ async def nitrover(ctx, member: discord.Member):
 #=========================================================================================
 
 
+@client.command()
+async def join(ctx):
+    channel = ctx.message.author.voice.channel
+    voice = get(client.voice_clients, guild=ctx.guild)
+    if voice and voice.is_connected():
+        await voice.move_to(channel)
+    else:
+        voice = await channel.connect()
 
 
-    
+
+
+
+@commands.has_role("Abone Rol Görevlisi")
+@client.command()
+async def abone(ctx, member : discord.Member):
+    guild = ctx.guild
+    abonerol = discord.utils.get(guild.roles, name="❤️ ۰ Abone")
+
+    await member.add_roles(abonerol)
+    id = ctx.author.id
+    embed = discord.Embed(title="Bg Abone Kayıt Sistemi", description=f"Abone Rolü {member.mention} Adlı Kullanıcıya <@{id}> Tarafından Verildi.", color=discord.Colour.green())
+    embed.add_field(name="Bol Bol İndir Bakem :)", value="H.O", inline=False)
+    embed.set_thumbnail(url=member.avatar_url)
+    await ctx.channel.send(embed=embed) 
+
+
+
+
+
 
 #client.run(os.getenv("TOKEN"))
 client.run("OTM1Nzk0ODc1NjIwNzk4NTE0.YfD05A.ThRq8vW_vskY6uq1BFmck-Fn8s8")
