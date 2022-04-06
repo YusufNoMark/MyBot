@@ -23,7 +23,7 @@ colorama.init()
 def botp(bot, message):
     
     # gayet basit bir şekilde prefix eklenebiliyor
-    prefixler = ['!', '.', 'b!']
+    prefixler = ['!', '$', 'b!']
 
     # mesaj dm den mi yoksa sunucudan mı gelmiş ona bakar
     if not message.guild:
@@ -53,6 +53,27 @@ async def on_ready():
     #🔒┇kayıt
     #🚪┇gelen-giden
 
+@client.event
+async def on_command_error(ctx, error):
+
+    if isinstance(error, commands.MissingRequiredArgument):
+
+        embed = discord.Embed(title="Boş Argüman!", description="Komutların Kullanımını Görmek İçin !yardım Yazınız.", color=discord.Colour.red())
+
+        await ctx.channel.send(embed=embed)
+
+    elif isinstance(error, commands.errors.CommandNotFound):
+
+        embed = discord.Embed(title="Bulunamayan Komut!", description="Komutları Görmek İçin !yardım Yazınız.", color=discord.Colour.red())
+
+        await ctx.channel.send(embed=embed)   
+
+    elif isinstance(error, commands.errors.MissingRole):
+
+        embed = discord.Embed(title="Bulunamayan İzin!", description="Görünüşe Göre Bu Komut İçin İznin Yok.", color=discord.Colour.red())
+
+        await ctx.channel.send(embed=embed)   
+
 
 
 @tasks.loop(seconds=3)
@@ -61,7 +82,7 @@ async def status_task() -> None:
     Setup the game status task of the bot
     """
     statuses = ["Güvenlik", "Eğlence", "Sistem"]
-    await bot.change_presence(activity=disnake.Game(random.choice(statuses)))
+    await client.change_presence(activity=discord.Game(random.choice(statuses)))
 
 
 
@@ -703,8 +724,15 @@ async def join(ctx):
 @commands.has_role("Abone Rol Görevlisi")
 @client.command()
 async def abone(ctx, member : discord.Member):
+
+
     guild = ctx.guild
     abonerol = discord.utils.get(guild.roles, name="❤️ ۰ Abone")
+
+    if not member:
+        embed = discord.Embed(title="Yanlış Kullanım!", description="Kullanım: ``!abone {memberarg}``", color=discord.Colour.red())
+
+        await ctx.channel.send(embed=embed)
 
     await member.add_roles(abonerol)
     id = ctx.author.id
