@@ -747,4 +747,4 @@ async def abone(ctx, member : discord.Member):
 
 
 #client.run(os.getenv("TOKEN"))
-client.run("OTM1Nzk0ODc1NjIwNzk4NTE0.YfD05A.ThRq8vW_vskY6uq1BFmck-Fn8s8")
+client.run("TOK")
